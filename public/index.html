@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff"><title>Connectly — Social community</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Connectly home"><span class="brand-mark">c</span> connectly<span class="brand-dot">.</span></a>
+    <div class="top-search"><span>⌕</span><input id="topSearch" placeholder="Search people and conversations" aria-label="Search"></div>
+    <div class="top-actions"><span id="welcome" class="welcome"></span><button id="logoutBtn" class="btn ghost hidden">Log out</button><div class="mini-avatar">C</div></div>
+  </header>
+  <main class="layout">
+    <aside class="sidebar card hidden" id="sidebar">
+      <p class="side-label">MENU</p>
+      <button class="nav active" data-view="feed"><span class="nav-icon">⌂</span> Home feed</button>
+      <button class="nav" data-view="discover"><span class="nav-icon">⌕</span> Discover people</button>
+      <button class="nav" data-view="profile"><span class="nav-icon">◎</span> My profile</button>
+      <div class="side-promo"><div class="promo-icon">✦</div><b>Your little corner<br>of the internet.</b><p>Share good moments and meet kind people.</p></div>
+      <div class="side-note">CONNECTLY · CODEALPHA TASK 2</div>
+    </aside>
+    <section class="content">
+      <section id="authView" class="auth-wrap">
+        <div class="auth-art"><div class="art-kicker">A PLACE TO BE YOU</div><h1>Good things<br>happen when<br><em>we connect.</em></h1><p>Share your moments, find your people, and make every conversation count.</p><div class="art-people"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces" alt="Community member"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=faces" alt="Community member"><img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=100&h=100&fit=crop&crop=faces" alt="Community member"><span>Join the conversation</span></div></div>
+        <div class="card auth-card"><div class="auth-logo"><span class="brand-mark">c</span><span>Welcome to Connectly</span></div><p class="muted auth-sub">Your community is just a sign in away.</p><div class="tabs"><button class="tab active" data-auth="login">Log in</button><button class="tab" data-auth="register">Create account</button></div><form id="authForm"><div id="registerFields" class="hidden"><label>Full name<input name="name" placeholder="Your name"></label><label>Username<input name="username" placeholder="e.g. sadhana28"></label></div><label>Email address<input name="email" type="email" required placeholder="you@example.com"></label><label>Password<input name="password" type="password" required minlength="6" placeholder="At least 6 characters"></label><button class="btn primary full" type="submit" id="authSubmit">Log in <span>→</span></button><p class="message" id="authMessage"></p></form><p class="auth-foot">By continuing, you agree to keep Connectly kind and welcoming.</p></div>
+      </section>
+      <section id="appView" class="hidden">
+        <div id="feedView">
+          <div class="page-heading"><div><p class="eyebrow">YOUR DAILY DOSE OF CONNECTION</p><h2>Home feed <span class="heading-spark">✳</span></h2><p class="heading-sub">See what your community is sharing today.</p></div><button class="btn ghost" id="refreshBtn">↻ Refresh</button></div>
+          <section class="stories card"><div class="stories-title"><b>Stories</b><span>Moments from your community</span></div><div class="story-list"><div class="story"><div class="story-ring add-story"><span>＋</span></div><small>Your story</small></div><div class="story"><div class="story-ring"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces" alt="Ava"></div><small>ava.m</small></div><div class="story"><div class="story-ring"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=faces" alt="Noah"></div><small>noah.jpg</small></div><div class="story"><div class="story-ring"><img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=100&h=100&fit=crop&crop=faces" alt="Mia"></div><small>mia.days</small></div><div class="story"><div class="story-ring"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&crop=faces" alt="Leo"></div><small>leo.create</small></div><div class="story"><div class="story-ring"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop&crop=faces" alt="Ella"></div><small>ella.r</small></div></div></section>
+          <form id="postForm" class="card composer"><div class="composer-head"><div class="avatar current-avatar">Y</div><div><b>Share a moment</b><span>What's happening in your world?</span></div></div><textarea id="postContent" maxlength="1000" placeholder="Write something worth sharing..." required></textarea><div class="composer-tools"><label class="image-url-label" for="postImageUrl">▧ <span>Add photo URL</span></label><input id="postImageUrl" type="url" placeholder="Paste an image URL (optional)"><button class="btn primary" type="submit">Share post <span>↗</span></button></div></form>
+          <div class="feed-section-title"><b>Latest posts</b><span>Fresh from your circle</span></div><div id="postsList" class="posts-list"></div>
+        </div>
+        <div id="discoverView" class="hidden"><div class="page-heading"><div><p class="eyebrow">FIND YOUR PEOPLE</p><h2>Discover people</h2><p class="heading-sub">There are good conversations waiting to happen.</p></div></div><div class="card search-card"><input id="userSearch" placeholder="Search by name or username..."><div id="userResults"></div></div></div>
+        <div id="profileView" class="hidden"><div class="page-heading"><div><p class="eyebrow">YOUR SPACE</p><h2>My profile</h2></div></div><div class="card profile-card"><div class="profile-cover"></div><div class="profile-main"><div class="avatar large" id="profileAvatar">U</div><div class="profile-info"><h2 id="profileName"></h2><p class="muted" id="profileUsername"></p><p id="profileBio"></p><div class="stats"><span><b id="profileFollowers">0</b> followers</span><span><b id="profileFollowing">0</b> following</span></div></div></div></div><form id="profileForm" class="card edit-profile"><h3>Edit profile</h3><label>Name<input id="editName" maxlength="60"></label><label>Bio<textarea id="editBio" maxlength="180" rows="2"></textarea></label><button class="btn primary" type="submit">Save profile</button><p class="message" id="profileMessage"></p></form></div>
+      </section>
+      <div id="toast" class="toast"></div>
+    </section>
+    <aside class="right-rail hidden" id="rightRail"><div class="card rail-card"><div class="rail-heading"><b>Community notes</b><span>✦</span></div><div class="note-item"><span class="note-icon pink">♡</span><div><b>Be kind</b><p>A little kindness goes a long way.</p></div></div><div class="note-item"><span class="note-icon yellow">☀</span><div><b>Stay curious</b><p>Every person has a story to tell.</p></div></div><div class="note-item"><span class="note-icon blue">✧</span><div><b>Keep sharing</b><p>Your perspective belongs here.</p></div></div></div><div class="card quote-card"><span>“</span><p>Alone we can do so little; together we can do so much.</p><small>— Helen Keller</small></div><div class="rail-footer">About · Community guidelines · Privacy<br>© 2026 Connectly</div></aside>
+  </main>
+  <footer>Connectly · CodeAlpha Task 2 · HTML, CSS, JavaScript, Express & MongoDB</footer>
+  <script src="app.js"></script>
+</body></html>
